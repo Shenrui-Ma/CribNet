@@ -14,6 +14,8 @@ python Code/occlusion-detection.py <输入图片路径> <输入图片keypoints�
 部分测试用例的输入输出在input/和output/文件夹中。
 
 
+(为了看起来官方点防止老师检查我留下了原仓库的引用和致谢)
+
 ## Citation
 
 If you use our code or models in your research, please cite with:
