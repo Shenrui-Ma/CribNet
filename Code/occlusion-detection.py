@@ -6,6 +6,7 @@ import torch, detectron2
 import os
 import cv2
 import argparse
+import os
 
 from datetime import datetime
 
@@ -38,7 +39,7 @@ cfg.SOLVER.BASE_LR = BASE_LR
 cfg.SOLVER.MAX_ITER = MAX_ITER
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = NUM_CLASSES
 
-cfg.MODEL.WEIGHTS = '/content/drive/MyDrive/Cribnet/models/model_final.pth'
+cfg.MODEL.WEIGHTS = '/data1/shenrui.ma/CribNet/model_final.pth'
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.4
 predictor = DefaultPredictor(cfg)
 
@@ -58,6 +59,12 @@ def check_occlusions(keypoints, masks, keypoints_labels):
 
 
 def visualize_keypoints(image, keypoints, skeleton, keypoints_labels, masks):
+    # 拿图片名
+    img_base = os.path.basename(args.image_path)
+    img_name, _ = os.path.splitext(img_base)
+    output_image_path = os.path.join(args.output_dir, "image",f"output_{img_name}.jpg")
+    output_txt_path   = os.path.join(args.output_dir, "anno",f"output_{img_name}.txt") 
+    
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     occlusions = check_occlusions(keypoints, masks, keypoints_labels)
 
@@ -82,14 +89,15 @@ def visualize_keypoints(image, keypoints, skeleton, keypoints_labels, masks):
 
         cv2.line(image, (int(start_keypoint[0]), int(start_keypoint[1])), (int(end_keypoint[0]), int(end_keypoint[1])), line_color, 10)
 
-    with open(args.output_txt_path, 'w') as f:
+    # 弃用args的输出路径参数
+    with open(output_txt_path, 'w') as f:
         for part, is_covered in occlusions.items():
             if is_covered:
                 f.write(f"{part} is covered by the blanket\n")
             else:
                 f.write(f"{part} is not covered by the blanket\n")
 
-    cv2.imwrite(args.output_image_path, image)
+    cv2.imwrite(output_image_path, image)
 
 
 keypoints_labels = [
@@ -110,8 +118,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Visualize and check occlusions for keypoints.")
     parser.add_argument("image_path", help="Path to the input image file")
     parser.add_argument("json_data_path", help="Path to the JSON file containing keypoints data")
-    parser.add_argument("output_image_path", help="Path where the output image will be saved")
-    parser.add_argument("output_txt_path", help="Path where the output text file will be saved")
+    # 只要输出目录，默认output文件夹
+    parser.add_argument("--output_dir", default="./output", help="Directory to save output files (default: current)")
 
     args = parser.parse_args()
 

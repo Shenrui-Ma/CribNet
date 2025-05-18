@@ -1,0 +1,47 @@
+<annotation>
+	<folder />
+	<filename>train90.jpg</filename>
+	<path>CribHD-T/PascalVOC/train/train90.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hard-toy</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>284</xmin>
+			<xmax>325</xmax>
+			<ymin>405</ymin>
+			<ymax>443</ymax>
+		</bndbox>
+		<polygon>
+			<x1>305</x1>
+			<y1>441.875</y1>
+			<x2>323.75</x2>
+			<y2>434.375</y2>
+			<x3>323.75</x3>
+			<y3>416.875</y3>
+			<x4>314.375</x4>
+			<y4>411.25</y4>
+			<x5>300.625</x5>
+			<y5>416.25</y5>
+			<x6>290.625</x6>
+			<y6>403.75</y6>
+			<x7>283.125</x7>
+			<y7>405</y7>
+			<x8>291.25</x8>
+			<y8>438.125</y8>
+			<x9>305</x9>
+			<y9>441.875</y9>
+		</polygon>
+	</object>
+</annotation>

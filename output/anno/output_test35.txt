@@ -1,0 +1,17 @@
+nose is not covered by the blanket
+left_eye is not covered by the blanket
+right_eye is not covered by the blanket
+left_ear is not covered by the blanket
+right_ear is not covered by the blanket
+left_shoulder is not covered by the blanket
+right_shoulder is not covered by the blanket
+left_elbow is not covered by the blanket
+right_elbow is not covered by the blanket
+left_wrist is not covered by the blanket
+right_wrist is not covered by the blanket
+left_hip is not covered by the blanket
+right_hip is not covered by the blanket
+left_knee is not covered by the blanket
+right_knee is not covered by the blanket
+left_ankle is not covered by the blanket
+right_ankle is not covered by the blanket
