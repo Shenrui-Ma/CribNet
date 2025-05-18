@@ -1,8 +1,0 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
-
-nc: 1
-names: ['blanket']
-
-Contributer: Amal Mathew ( mathew.ama@northeastern.edu)
