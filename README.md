@@ -3,8 +3,6 @@
 ## Introduction
 [原仓库](https://github.com/ostadabbas/CribNet)    </br>
 
-## Intro
-
 本仓库的毯子遮挡检测逻辑与目录结构与原仓库有优化。
 
 运行毯子遮挡检测(occlusion-detection.py):
